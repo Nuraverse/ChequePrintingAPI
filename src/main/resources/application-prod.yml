@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: cheque-printing-systems # Name of the application
+
+  servlet:
+    multipart:
+      max-file-size: 10MB # Maximum size of a single file upload
+      max-request-size: 10MB # Maximum size of the entire request
+
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/xe # JDBC URL for Oracle database
+    username: system # Database username
+    password: oracledbpwd # Database password
+    driver-class-name: oracle.jdbc.OracleDriver # JDBC driver class
+    hikari:
+      maximum-pool-size: 10 # Maximum number of connections in the pool
+      minimum-idle: 1 # Minimum number of idle connections
+      idle-timeout: 30000 # Timeout for idle connections (in ms)
+      connection-timeout: 30000 # Timeout to get a connection (in ms)
+      max-lifetime: 1800000 # Maximum lifetime of a connection in the pool (in ms)
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Auto schema management
+    show-sql: true # Show SQL statements in the log
+    properties:
+      hibernate:
+        transaction:
+          jta:
+            platform: org.hibernate.service.jta.platform.spi.NoJtaPlatform # Disable JTA
+    open-in-view: false # Disable open-in-view for lazy loading
+
+  session:
+    store-type: jdbc # Use JDBC for session storage
+
+  security:
+    user:
+      name: ps # Default username for security
+      password: ps123 # Default password for security
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # Use ant path matcher for URL matching
+
+  web:
+    cors:
+      allowed-origin-patterns: "*" # Allow requests from all origins
+      allowed-methods: GET, POST, PUT, DELETE, OPTIONS # Specify allowed HTTP methods
+      allow-credentials: true # Allow credentials
+      allowed-headers: "*" # Allow all headers
+
+logging:
+  level:
+    org.springframework: WARN # Logging level for Spring framework
+    com.cheque: WARN # Logging level for your application
+    org.springframework.boot.autoconfigure: ERROR # Logging level for Spring Boot autoconfiguration
+
+server:
+  port: 8080 # Port for the application
+  servlet:
+    context-path: /api # Base context path for the application
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Expose all management endpoints
+  endpoint:
+    health:
+      show-details: always # Always show health details
+  server:
+    port: 8086 # Port for management server
+
+springdoc:
+  cache:
+    disabled: true # Disable caching for SpringDoc
+  show-actuator: true # Show Spring Actuator details in API documentation
+
+file:
+  upload-dir: E:/uploads/bankImages # Directory for file uploads

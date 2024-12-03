@@ -69,7 +69,7 @@ management:
     health:
       show-details: always # Always show health details
   server:
-    port: 8086 # Port for management server
+    port: 8087 # Port for management server
 
 springdoc:
   cache:

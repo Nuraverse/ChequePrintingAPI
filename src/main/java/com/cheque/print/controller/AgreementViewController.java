@@ -8,29 +8,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cheque.print.entity.ContractInfoView;
-import com.cheque.print.service.ContractInfoViewService;
+import com.cheque.print.entity.AgreementView;
+import com.cheque.print.service.AgreementViewService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/contracts")
 @CrossOrigin(origins = "*")
-public class ContractInfoViewController {
+public class AgreementViewController {
 
     @Autowired
-    private ContractInfoViewService contractInfoViewService;
+    private AgreementViewService agreementViewService;
 
     @GetMapping("v1/view")
-    public List<ContractInfoView> getAllContracts() {
-        return contractInfoViewService.getAllContracts();
+    public List<AgreementView> getAllAgreements() {
+        return agreementViewService.getAllAgreements();
     }
 
-    @GetMapping("v1/view/{contractId}")
-    public ResponseEntity<ContractInfoView> getContractInfoByContractId(@PathVariable String contractId) {
+    @GetMapping("v1/view/{agreementNo}")
+    public ResponseEntity<AgreementView> getAgreementInfoByAgreementNo(@PathVariable Long agreementNo) {
 
-        return contractInfoViewService.getContractInfoByContractId(contractId)
+        return agreementViewService.getAgreementInfoByAgreementNo(agreementNo)
                 .map(contractInfoView -> ResponseEntity.ok(contractInfoView)) // Return 200 OK with the contract info
-                .orElse(ResponseEntity.ok(new ContractInfoView())); // Return 200 OK with empty JSON object
+                .orElse(ResponseEntity.ok(new AgreementView())); // Return 200 OK with empty JSON object
     }
 }

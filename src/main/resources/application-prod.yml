@@ -8,9 +8,9 @@ spring:
       max-request-size: 10MB # Maximum size of the entire request
 
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/xe # JDBC URL for Oracle database
-    username: system # Database username
-    password: oracledbpwd # Database password
+    url: jdbc:oracle:thin:@//10.10.46.203:1571/ORCL # JDBC URL for Oracle database
+    username: SFSFA # Database username
+    password: sfsfa123 # Database password
     driver-class-name: oracle.jdbc.OracleDriver # JDBC driver class
     hikari:
       maximum-pool-size: 10 # Maximum number of connections in the pool
@@ -69,7 +69,7 @@ management:
     health:
       show-details: always # Always show health details
   server:
-    port: 8087 # Port for management server
+    port: 8086 # Port for management server
 
 springdoc:
   cache:

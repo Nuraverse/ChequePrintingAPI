@@ -41,6 +41,9 @@ public class Cheque {
     @Column(name = "print_start_position")
     private Double printStartPosition;
 
+    @Column(name = "text_top_position")
+    private Double textTopPosition;
+
     @Column(name = "canvas_width")
     private Double canvasWidth;
 
@@ -83,7 +86,7 @@ public class Cheque {
             Double canvasWidth, Double canvasHeight, String periodsConfig,
             String chequeConfigFront, String chequeConfigBack, Long createdUserId,
             String createdBy, Timestamp createdDate, Long updatedUserId,
-            String updatedBy, Timestamp updatedDate, Double printStartPosition) {
+            String updatedBy, Timestamp updatedDate, Double printStartPosition, Double textTopPosition) {
         this.id = id;
         this.chequeName = chequeName;
         this.bankName = bankName;
@@ -101,5 +104,6 @@ public class Cheque {
         this.updatedBy = updatedBy;
         this.updatedDate = updatedDate;
         this.printStartPosition = printStartPosition;
+        this.textTopPosition = textTopPosition;
     }
 }

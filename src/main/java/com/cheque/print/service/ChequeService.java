@@ -38,6 +38,7 @@ public class ChequeService {
             chequeToUpdate.setUpdatedDate(cheque.getUpdatedDate());
             chequeToUpdate.setChequeName(cheque.getChequeName());
             chequeToUpdate.setPrintStartPosition(cheque.getPrintStartPosition());
+            chequeToUpdate.setTextTopPosition(cheque.getTextTopPosition());
 
             // Save the updated cheque
             return chequeRepository.save(chequeToUpdate);
